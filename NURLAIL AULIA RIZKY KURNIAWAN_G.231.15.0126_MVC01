@@ -1,0 +1,22 @@
+NAMA 	: NURLAIL AULIA RIZKY KURNIAWAN
+NIM		: G.231.15.0126
+
+1. Object Dan Variabel Yang Dibuat
+my-spring = terletak pada file web.xml, digunakan untuk menarik file my-spring-sevlet pada direktori yang sama.
+ModelAndView = terletak pada file HelloWorld.java pada package com.tokobuku.controller. Digunakan untuk menampilkan value dari suatu variabel lalu dikirimkan ke view.
+${message} = merupakan variabel panggilan yang terdapat pada welcome.jsp. Variabel ini didapat dari HelloWorld.java pada bagian return new ModelAndView("welcome", "message", message); 
+
+2. Package Yang Dibuat
+com.tokobuku.controller = sebagai package untuk meletakkan file-file controller.
+
+3. Alur Logic Programming
+a. Pertama, web.xml membuat list untuk format file dan file-file apa saja yang akan dibaca yang konfigurasinya terletak pada bagian <welcome-file>...</welcome-file> dan pemanggilan sevlet yaitu my-spring yang terdapat pada file my-spring-sevlet. Pada bagian <welcome-file> merupakan syntax untuk mendefine file apa yang akan menjadi halaman awal.
+b. Pada my-spring-sevlet.xml, melakukan import package com.tokobuku.controller dan membuat bean yang isinya mendefine bahwa /WEB-INF/jsp/ yang berformat .jsp merupakan sebuah view.
+c. File index.jsp merupakan sebuah file view yang berisi tentang kode html yang kemudian akan menjadi halaman awal ketika membuka localhost. File ini akan dibaca oleh my-spring-sevlet.xml dan dari situ akan diteruskan ke file web.xml. 
+d. Hello.html yang terdapat pada index.jsp merupakan pemanggilan halaman baru yang berasal dari controller HelloWorld.java. Pada file tersebut, dibuat class HelloWorld, object ModelAndView dan variabel message. File ini melakukan @RequestMapping yang berfungsi sebagai cara memanggil file ini dari file view. Pada variabel message, diisikan syntax html yang akan dimasukkan kedalam object ModelAndView. Return new ModelAndView("welcome", "message", message); yaitu perintah untuk memanggil file welcome.jsp dengan mengirimkan variabel message yang tadi telah dibuat dan membuat variabel tersebut akan bisa ditampilkan pada file welcome.jsp.
+e. Pada file welcome.jsp, merupakan file view berisi syntax html dan juga variabel yang dikirim oleh controller HelloWorld.java. Karena variabel message berisi syntax html, maka variabel tersebut  akan menjadi tampilan html.
+
+Dari penjelasan diatas dapat kita ketahui bahwa yang merupakan file :
+1. Controller = web.xml, HelloWorld.java
+2. Model = my-spring-sevlet.xml
+3. View = index.jsp, welcome.jsp
